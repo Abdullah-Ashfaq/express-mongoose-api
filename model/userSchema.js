@@ -8,7 +8,17 @@ const userSchema = mongoose.Schema({
     age: {
         type: Number,
         required: true
-    }
+    },
+    mobileNo: {
+        type: Number
+       
+    },
+    cnic: {
+        type: Number
+       
+    },
+
+    
 
 })
   

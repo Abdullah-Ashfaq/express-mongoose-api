@@ -36,7 +36,7 @@ router.post("/register", (req, res) => {
         return res.status(422).json({ error: "user already registered " });
       }
       // creating new user
-      const user = new User({ name, age });
+      const user = new User({ name, age, mobileNo, cnic });
 
       user.save()
         .then(() => {
