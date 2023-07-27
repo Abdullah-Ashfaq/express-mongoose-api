@@ -25,7 +25,7 @@ router.get("/register", (req, res) => {
 
 // Method for Posting the Data
 router.post("/register", (req, res) => {
-  const { name, age } = req.body;
+  const { name, age, mobileNo, cnic} = req.body;
   if (!name || !age) {
     return res.status(422).json({ error: "please fill in the missing fields " });
   }
@@ -69,13 +69,13 @@ router.delete('/register/:name', async (req, res) => {
 
 router.put("/register/:name", (req, res) => {
   const { name } = req.params;
-  const { name: newName, age } = req.body; // Destructure name from req.body as newName
+  const { name: newName, age, mobileNo, cnic } = req.body; // Destructure name from req.body as newName
 
   if (!age || !newName) {
     return res.status(422).json({ error: "Please provide the updated name and age" });
   }
 
-  User.findOneAndUpdate({ name }, { name: newName, age }, { new: true }) // Include the new name and age in the update object
+  User.findOneAndUpdate({ name }, { name: newName, age, mobileNo, cnic }, { new: true }) // Include the new name and age in the update object
     .then((user) => {
       if (!user) {
         return res.status(404).json({ error: "User not found" });

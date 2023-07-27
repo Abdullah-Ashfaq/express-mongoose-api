@@ -10,17 +10,19 @@ const userSchema = mongoose.Schema({
         required: true
     },
     mobileNo: {
-        type: Number
+        type: Number,
+        required: true
        
     },
     cnic: {
-        type: Number
+        type: Number,
+        required: true
        
     },
 
     
 
-})
+},{versionKey: false})
   
 const User = mongoose.model('USER', userSchema)
 module.exports = User;
